@@ -31,17 +31,17 @@ iris_X, iris_y = iris.data[:-1,:], iris.target[:-1]
 iris_y= pd.get_dummies(iris_y).values
 trainX, testX, trainY, testY = train_test_split(iris_X, iris_y, test_size=0.33, random_state=42)
 
-'''
-Now we define x and y. These placeholders will hold our iris data (both the features and label matrices), 
-and help pass them along to different parts of the algorithm. You can consider placeholders as empty shells into which we insert our data. 
-We also need to give them shapes which correspond to the shape of our data. Later, we will insert data into these placeholders 
-by “feeding” the placeholders the data via a “feed_dict” (Feed Dictionary).
-Why use Placeholders?
 
-    This feature of TensorFlow allows us to create an algorithm which accepts data and knows something about the shape of 
-    the data without knowing the amount of data going in.
-    When we insert “batches” of data in training, we can easily adjust how many examples we train on in a single step without changing the entire algorithm.
-'''
+#Now we define x and y. These placeholders will hold our iris data (both the features and label matrices), 
+#and help pass them along to different parts of the algorithm. You can consider placeholders as empty shells into which we insert our data. 
+#we also need to give them shapes which correspond to the shape of our data. Later, we will insert data into these placeholders 
+#by “feeding” the placeholders the data via a “feed_dict” (Feed Dictionary).
+#Why use Placeholders?
+
+    #This feature of TensorFlow allows us to create an algorithm which accepts data and knows something about the shape of 
+    #the data without knowing the amount of data going in.
+    #When we insert “batches” of data in training, we can easily adjust how many examples we train on in a single step without changing the entire algorithm.
+
 # numFeatures is the number of features in our input data.
 # In the iris dataset, this number is '4'.
 numFeatures = trainX.shape[1]
@@ -58,19 +58,19 @@ yGold = tf.placeholder(tf.float32, [None, numLabels]) # This will be our correct
 
 #Set model weights and bias--------------------------------------------------------------------------------
 
-'''
 
-Much like Linear Regression, we need a shared variable weight matrix for Logistic Regression. 
-We initialize both W and b as tensors full of zeros. Since we are going to learn W and b, their initial value does not matter too much. 
-These variables are the objects which define the structure of our regression model, and we can save them after they have been trained so we can reuse them later.
 
-We define two TensorFlow variables as our parameters. These variables will hold the weights and biases of our logistic regression 
-and they will be continually updated during training.
+#Much like Linear Regression, we need a shared variable weight matrix for Logistic Regression. 
+#We initialize both W and b as tensors full of zeros. Since we are going to learn W and b, their initial value does not matter too much. 
+#These variables are the objects which define the structure of our regression model, and we can save them after they have been trained so we can reuse them later.
 
-Notice that W has a shape of [4, 3] because we want to multiply the 4-dimensional input vectors by it to produce 3-dimensional vectors of 
-evidence for the difference classes. b has a shape of [3] so we can add it to the output. Moreover, unlike our placeholders above which are 
-essentially empty shells waiting to be fed data, TensorFlow variables need to be initialized with values, e.g. with zeros.
-'''
+#We define two TensorFlow variables as our parameters. These variables will hold the weights and biases of our logistic regression 
+#and they will be continually updated during training.
+
+#Notice that W has a shape of [4, 3] because we want to multiply the 4-dimensional input vectors by it to produce 3-dimensional vectors of 
+#evidence for the difference classes. b has a shape of [3] so we can add it to the output. Moreover, unlike our placeholders above which are 
+#essentially empty shells waiting to be fed data, TensorFlow variables need to be initialized with values, e.g. with zeros.
+
 W = tf.Variable(tf.zeros([4, 3]))  # 4-dimensional input and  3 classes
 b = tf.Variable(tf.zeros([3])) # 3-dimensional output [0,0,1],[0,1,0],[1,0,0]
 
