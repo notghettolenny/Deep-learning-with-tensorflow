@@ -1,9 +1,8 @@
 #RESTRICTED BOLTZMANN MACHINES
 #Initialization---------------------------------------------------------------------------------------------
-'''
-First we have to load the utility file which contains different utility functions that are not 
-connected in any way to the networks presented in the tutorials, but rather help in processing the outputs into a more understandable way.
-'''
+
+#First we have to load the utility file which contains different utility functions that are not connected in any way to the networks presented in the tutorials, but rather help in processing the outputs into a more understandable way.
+
 import urllib.request
 with urllib.request.urlopen("http://deeplearning.net/tutorial/code/utils.py") as url:
     response = url.read()
@@ -30,24 +29,23 @@ Here we define the bias of second layer as well. We will denote the bias as “h
 v_bias = tf.placeholder("float", [7])
 h_bias = tf.placeholder("float", [2])
 
-'''
-We have to define weights among the input layer and hidden layer nodes. 
-In the weight matrix, the number of rows are equal to the input nodes, and the number of columns are equal to the output nodes. 
-Let W be the Tensor of 7x2 (7 - number of visible neurons, 2 - number of hidden neurons) that represents weights between neurons. 
-'''
-W = tf.constant(np.random.normal(loc=0.0, scale=1.0, size=(7, 2)).astype(np.float32))
+#We have to define weights among the input layer and hidden layer nodes. 
+#In the weight matrix, the number of rows are equal to the input nodes, and the number of columns are equal to the output nodes. 
+#Let W be the Tensor of 7x2 (7 - number of visible neurons, 2 - number of hidden neurons) that represents weights between neurons. 
 
-'''
-RBM has two phases:
+#W = tf.constant(np.random.normal(loc=0.0, scale=1.0, size=(7, 2)).astype(np.float32))
 
-    Forward Pass
-    Backward Pass or Reconstruction
-'''
 
-'''
-Before we go further, let's look at a toy example for one case out of all input. 
-Assume that we have a trained RBM, and a very simple input vector such as [1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0], lets see what would be the output of forward pass:
-'''
+#RBM has two phases:
+
+    #Forward Pass
+   # Backward Pass or Reconstruction
+
+
+
+#Before we go further, let's look at a toy example for one case out of all input. 
+#Assume that we have a trained RBM, and a very simple input vector such as [1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0], lets see what would be the output of forward pass:
+
 sess = tf.Session()
 X = tf.constant([[1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]])
 v_state = X
@@ -177,14 +175,14 @@ uw = weights[-1].T
 print (uw) # a weight matrix of shape (50,784)
 
 #Learned features-----------------------------------------------------------------------
-'''
-We can take each hidden unit and visualize the connections between that hidden unit and each element in the input vector. 
-In our case, we have 50 hidden units. Lets visualize those.
-'''
-'''
-Let's plot the current weights: tile_raster_images helps in generating an easy to grasp image from a set of samples or weights. 
-It transform the uw (with one flattened image per row of size 784), into an array (of size 25×20) in which images are reshaped and laid out like tiles on a floor.
-'''
+
+#We can take each hidden unit and visualize the connections between that hidden unit and each element in the input vector. 
+#In our case, we have 50 hidden units. Lets visualize those.
+
+
+#Let's plot the current weights: tile_raster_images helps in generating an easy to grasp image from a set of samples or weights. 
+#It transform the uw (with one flattened image per row of size 784), into an array (of size 25×20) in which images are reshaped and laid out like tiles on a floor.
+
 tile_raster_images(X=cur_w.T, img_shape=(28, 28), tile_shape=(5, 10), tile_spacing=(1, 1))
 import matplotlib.pyplot as plt
 from PIL import Image

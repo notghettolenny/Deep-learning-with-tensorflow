@@ -1,10 +1,10 @@
 #RECURRENT NETWORKS IN DEEP LEARNING
-'''
-Lets first create a tiny LSTM network sample to understand the architecture of LSTM networks.
 
-We need to import the necessary modules for our code. We need numpy and tensorflow, obviously. 
-Additionally, we can import directly the tensorflow.contrib.rnn model, which includes the function for building RNNs.
-'''
+#Lets first create a tiny LSTM network sample to understand the architecture of LSTM networks.
+
+#We need to import the necessary modules for our code. We need numpy and tensorflow, obviously. 
+#Additionally, we can import directly the tensorflow.contrib.rnn model, which includes the function for building RNNs.
+
 import numpy as np
 import tensorflow as tf
 sess = tf.Session()

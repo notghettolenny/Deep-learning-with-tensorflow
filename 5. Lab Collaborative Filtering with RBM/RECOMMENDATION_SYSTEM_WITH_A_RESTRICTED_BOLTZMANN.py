@@ -1,19 +1,18 @@
 #RECOMMENDATION SYSTEM WITH A RESTRICTED BOLTZMANN MACHINE
 #Acquiring the Data---------------------------------------------------------
-'''
-To start, we need to download the data we are going to use for our system. 
-The datasets we are going to use were acquired by GroupLens and contain movies, users and movie ratings by these users.
 
-After downloading the data, we will extract the datasets to a directory that is easily accessible.
-'''
+#To start, we need to download the data we are going to use for our system. 
+#The datasets we are going to use were acquired by GroupLens and contain movies, users and movie ratings by these users.
+
+#After downloading the data, we will extract the datasets to a directory that is easily accessible.
+
 !wget -O ./data/moviedataset.zip http://files.grouplens.org/datasets/movielens/ml-1m.zip
 !unzip -o ./data/moviedataset.zip -d ./data
 
-'''
-With the datasets in place, let's now import the necessary libraries. 
-We will be using Tensorflow and Numpy together to model and initialize our Restricted Boltzmann Machine and Pandas to manipulate our datasets. 
-To import these libraries, run the code cell below.
-'''
+#With the datasets in place, let's now import the necessary libraries. 
+#We will be using Tensorflow and Numpy together to model and initialize our Restricted Boltzmann Machine and Pandas to manipulate our datasets. 
+#To import these libraries
+
 #Tensorflow library. Used to implement machine learning models
 import tensorflow as tf
 #Numpy contains helpful functions for efficient mathematical calculations
